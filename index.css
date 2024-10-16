@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
 }
-
+/* header */
 header{
     height: 10vh;
     width: 100vw;
@@ -14,4 +14,28 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* section 1: rock/paper/scissors */
+
+.choices{
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+.choice{
+    width: 200px;
+    height: 200px;
+    margin-left: 20px;
+}
+
+img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+img:hover{
+    border: 4px solid black;
 }
