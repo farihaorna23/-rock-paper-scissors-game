@@ -46,7 +46,7 @@ img:hover{
 
 /* score board */
 .score-board{
-    height:100px;
+    height:200px;
     width: 100vw;
     display: flex;
     justify-content: center;
@@ -60,9 +60,31 @@ img:hover{
 }
 
 .score{
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 500;
     display: inline-block;
     margin-bottom: 10px;
 }
 
+.score-text{
+    font-size: 1.5rem;
+}
+
+/* message */
+.message{
+    width: 100vw;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.msg{
+background-color:#10375C;
+border-radius: 6px;
+color: #dddddd;
+width: 50%;
+text-align: center;
+font-size: 1.5rem;
+padding: 20px;
+}
