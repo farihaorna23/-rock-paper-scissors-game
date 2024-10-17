@@ -11,6 +11,7 @@ let playAgainBtn = document.querySelector(".play-again-btn")
 
 let uScore = 0
 let cScore = 0
+let gameStart = true //new game round starts
 // function will check who won
 //will return an object with who won and what the message board would say
 const winCheck = (userChoice, compChoice) => {
@@ -72,50 +73,67 @@ const resultUpdate = (outcome) => {
     //update the message board
     let message = outcome["msg"]
     msg.textContent = message
-
-    //show the play again button
-    console.log(playAgainBtn)
-    playAgainBtn.style.display = "block"
 }
 
 //user picks rock
 let rockHandler = () => {
+//new game round starts
+ if(gameStart) {
     // highlight users choice
     rockImg.style.border = "4px solid black"
     // get computer's choice
     let computerChoice = compChoice()
     // check who won
     let outcome = winCheck("Rock",computerChoice)
-    console.log(outcome)
     //update the message and score board
     resultUpdate(outcome)
+    //end of the game round
+    gameStart = false
+ }
 }
     
 let paperHandler = () => {
-  // highlight users choice
-  rockImg.style.border = "4px solid black"
-  // get computer's choice
-  let computerChoice = compChoice()
-  // check who won
-  let outcome = winCheck("Paper",computerChoice)
-  console.log(outcome)
-  //update the message and score board
-  resultUpdate(outcome)
+ //new game round starts
+ if(gameStart) {
+    // highlight users choice
+    paperImg.style.border = "4px solid black"
+    // get computer's choice
+    let computerChoice = compChoice()
+    // check who won
+    let outcome = winCheck("Paper",computerChoice)
+    //update the message and score board
+    resultUpdate(outcome)
+    //end of the game round
+    gameStart = false
+ }
 }
     
 let scissorHandler = () => {
-  // highlight users choice
-  rockImg.style.border = "4px solid black"
-  // get computer's choice
-  let computerChoice = compChoice()
-  // check who won
-  let outcome = winCheck("Scissor",computerChoice)
-  console.log(outcome)
-  //update the message and score board
-  resultUpdate(outcome)
+//new game round starts
+if(gameStart) {
+    // highlight users choice
+    scissorImg.style.border = "4px solid black"
+    // get computer's choice
+    let computerChoice = compChoice()
+    // check who won
+    let outcome = winCheck("Scissor",computerChoice)
+    //update the message and score board
+    resultUpdate(outcome)
+    //end of the game round
+    gameStart = false
+ }
 }  
+//new round starts
+let playAgainHandler = () => {
+    //users would be able to click their choices again
+    gameStart = true
+    //make sure none of the choice have border
+    rockImg.style.border = "none"
+    paperImg.style.border = 'none'
+    scissorImg.style.border = "none"
+}
     
 Rock.addEventListener('click',rockHandler)
 Paper.addEventListener('click',paperHandler)
 Scissor.addEventListener('click',scissorHandler)
-    
+playAgainBtn.addEventListener('click',playAgainHandler)    
