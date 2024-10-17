@@ -88,3 +88,35 @@ text-align: center;
 font-size: 1.5rem;
 padding: 20px;
 }
+
+/* game buttons */
+.game-btns{
+height: 100px;
+width: 100vw;
+margin-top: 20px;
+
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.btn{
+    height: 100px;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    background-color:#10375C;
+    color: #dddddd;
+}
+
+.start-over-btn {
+    margin-left: 15px;
+}
+
+.again-btn{
+    display: none;
+}
