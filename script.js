@@ -8,6 +8,7 @@ let msg = document.querySelector(".msg")
 let userScore = document.querySelector(".user-score")
 let compScore = document.querySelector(".comp-score")
 let playAgainBtn = document.querySelector(".play-again-btn")
+let startOverBtn = document.querySelector(".start-over-btn")
 
 let uScore = 0
 let cScore = 0
@@ -75,7 +76,7 @@ const resultUpdate = (outcome) => {
     msg.textContent = message
 }
 
-//user picks rock
+//user chooses rock
 let rockHandler = () => {
 //new game round starts
  if(gameStart) {
@@ -91,7 +92,8 @@ let rockHandler = () => {
     gameStart = false
  }
 }
-    
+
+//user chooses paper
 let paperHandler = () => {
  //new game round starts
  if(gameStart) {
@@ -107,7 +109,8 @@ let paperHandler = () => {
     gameStart = false
  }
 }
-    
+
+//user chooses scissor
 let scissorHandler = () => {
 //new game round starts
 if(gameStart) {
@@ -132,8 +135,27 @@ let playAgainHandler = () => {
     paperImg.style.border = 'none'
     scissorImg.style.border = "none"
 }
-    
+
+//compltely new game
+let startOverHandler = () => {
+    //users would be able to click their choices again
+    gameStart = true
+    //make sure none of the choice have border
+    rockImg.style.border = "none"
+    paperImg.style.border = 'none'
+    scissorImg.style.border = "none"
+    //reset the score board back to 0
+    uScore = 0
+    cScore = 0
+    userScore.textContent = '0'
+    compScore.textContent = '0'
+    //reset the message board
+    msg.textContent = "Pick your move"
+}
+
+//addinh event listeners to all the game choices and buttons
 Rock.addEventListener('click',rockHandler)
 Paper.addEventListener('click',paperHandler)
 Scissor.addEventListener('click',scissorHandler)
-playAgainBtn.addEventListener('click',playAgainHandler)    
+playAgainBtn.addEventListener('click',playAgainHandler)
+startOverBtn.addEventListener('click',startOverHandler)
