@@ -76,16 +76,17 @@ const resultUpdate = (outcome) => {
     msg.textContent = message
 }
 
-//user chooses rock
-let rockHandler = () => {
-//new game round starts
- if(gameStart) {
+//Refactoring Handler functions to avoid repeating code
+let playGame = (userChoice,choiceImg) => {
+   //new game round starts
+    if(gameStart) {
     // highlight users choice
-    rockImg.style.border = "4px solid black"
+    choiceImg.style.border = "4px solid black"
     // get computer's choice
     let computerChoice = compChoice()
     // check who won
-    let outcome = winCheck("Rock",computerChoice)
+    console.log(userChoice,computerChoice)
+    let outcome = winCheck(userChoice,computerChoice)
     //update the message and score board
     resultUpdate(outcome)
     //end of the game round
@@ -93,39 +94,20 @@ let rockHandler = () => {
  }
 }
 
+//user chooses rock
+let rockHandler = () => {
+    playGame("Rock", rockImg)
+}
+ 
 //user chooses paper
 let paperHandler = () => {
- //new game round starts
- if(gameStart) {
-    // highlight users choice
-    paperImg.style.border = "4px solid black"
-    // get computer's choice
-    let computerChoice = compChoice()
-    // check who won
-    let outcome = winCheck("Paper",computerChoice)
-    //update the message and score board
-    resultUpdate(outcome)
-    //end of the game round
-    gameStart = false
- }
+   playGame("Paper",paperImg)
 }
 
 //user chooses scissor
 let scissorHandler = () => {
-//new game round starts
-if(gameStart) {
-    // highlight users choice
-    scissorImg.style.border = "4px solid black"
-    // get computer's choice
-    let computerChoice = compChoice()
-    // check who won
-    let outcome = winCheck("Scissor",computerChoice)
-    //update the message and score board
-    resultUpdate(outcome)
-    //end of the game round
-    gameStart = false
- }
-}  
+    playGame("Scissor",scissorImg)
+}
 //new round starts
 let playAgainHandler = () => {
     //users would be able to click their choices again
